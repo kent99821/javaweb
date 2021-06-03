@@ -13,6 +13,8 @@
         <element id="directory" name="classes">
           <element id="module-output" name="book" />
         </element>
+        <element id="library" level="project" name="mysql-connector-java-5.1.7-bin" />
+        <element id="library" level="project" name="druid-1.1.9" />
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/book/target/book-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
