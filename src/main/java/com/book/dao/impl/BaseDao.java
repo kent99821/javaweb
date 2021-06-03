@@ -13,7 +13,7 @@ import java.util.List;
 public abstract class BaseDao {
 //    使用DBUtils 操作数据库
     private QueryRunner queryRunner=new QueryRunner();
-//    update用来执行insert\update\delete语句
+//    update用来执行insert/update/delete语句
 //    返回-1表示影响的行数
     public int update(String sql,Object ... args){
         Connection connection=JdbcUtils.getConnection();
@@ -68,6 +68,8 @@ public Object queryForSingleValue(String sql,Object ... args){
        return queryRunner.query(conn,sql,new ScalarHandler(),args);
     } catch (SQLException throwables) {
         throwables.printStackTrace();
+    }finally {
+        JdbcUtils.close(conn);
     }
     return null;
 }
