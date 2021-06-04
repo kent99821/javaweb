@@ -13,13 +13,13 @@ public interface UserService {
  * @param user
  * @return
  */
-public User login(User user);
+   public  User login(User user);
 /**
  * 检查用户名是否存在
  * @param username
  * @return true表示用户存在 返回false表示用户名可用
  */
-public boolean existUsername(String username);
+   public boolean existUsername(String username);
 
 
 }
