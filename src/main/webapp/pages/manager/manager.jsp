@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -17,9 +19,9 @@
 			<img class="logo_img" alt="" src="../../static/img/logo.gif" >
 			<span class="wel_word">后台管理系统</span>
 			<div>
-				<a href="book_manager.html">图书管理</a>
-				<a href="order_manager.html">订单管理</a>
-				<a href="../../index.html">返回商城</a>
+				<a href="book_manager.jsp">图书管理</a>
+				<a href="order_manager.jsp">订单管理</a>
+				<a href="../../index.jsp">返回商城</a>
 			</div>
 	</div>
 	

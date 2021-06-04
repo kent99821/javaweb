@@ -28,18 +28,18 @@ public class RegisterServlet extends HttpServlet {
             //验证码正确
          if(userService.existUsername(username)){
              System.out.println("用户名["+username+"]已存在");
-             request.getRequestDispatcher("/pages/user/regist.html").forward(request,response);
+             request.getRequestDispatcher("/pages/user/regist.jsp").forward(request,response);
 
          }
          else {
              userService.registerUser(new User(null,username,password,email));
-             request.getRequestDispatcher("/pages/user/regist_success.html").forward(request,response);
+             request.getRequestDispatcher("/pages/user/regist_success.jsp").forward(request,response);
 
          }
      }else {
          //跳回注册页面
          System.out.println("验证码错误["+code+"]错误");
-         request.getRequestDispatcher("/pages/user/regist.html").forward(request,response);
+         request.getRequestDispatcher("/pages/user/regist.jsp").forward(request,response);
 
      }
     }
