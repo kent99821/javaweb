@@ -4,8 +4,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>尚硅谷会员注册页面</title>
-	<base href="http://localhost:8080/web/">
-	<link type="text/css" rel="stylesheet" href="static/css/style.css" >
+	<%--静态包含base标签 css样式 jQuery文件--%>
+	<%@include file="/pages/common/head.jsp"%>
 	<script type="text/javascript" src="static/script/jquery-1.7.2.js"></script>
 	<script type="text/javascript">
 		// 页面加载完成之后

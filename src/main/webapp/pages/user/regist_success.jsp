@@ -4,8 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <title>尚硅谷会员注册页面</title>
-<link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
-<style type="text/css">
+	<%--静态包含base标签 css样式 jQuery文件--%>
+	<%@include file="/pages/common/head.jsp"%><style type="text/css">
 	h1 {
 		text-align: center;
 		margin-top: 200px;

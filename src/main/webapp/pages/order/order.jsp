@@ -4,8 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <title>我的订单</title>
-<link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
-<style type="text/css">
+	<%--静态包含base标签 css样式 jQuery文件--%>
+	<%@include file="/pages/common/head.jsp"%>
+	<style type="text/css">
 	h1 {
 		text-align: center;
 		margin-top: 200px;
@@ -17,12 +18,8 @@
 	<div id="header">
 			<img class="logo_img" alt="" src="../../static/img/logo.gif" >
 			<span class="wel_word">我的订单</span>
-			<div>
-				<span>欢迎<span class="um_span">韩总</span>光临尚硅谷书城</span>
-				<a href="../order/order.jsp">我的订单</a>
-				<a href="../../index.jsp">注销</a>&nbsp;&nbsp;
-				<a href="../../index.jsp">返回</a>
-			</div>
+		<%--静态包含 登录 成功之后的菜单--%>
+		<%@ include file="/pages/common/login_success_menu.jsp"%>
 	</div>
 	
 	<div id="main">
@@ -58,11 +55,9 @@
 		
 	
 	</div>
-	
-	<div id="bottom">
-		<span>
-			尚硅谷书城.Copyright &copy;2015
-		</span>
-	</div>
+
+	<%--页脚--%>
+	<%@include file="/pages/common/footer.jsp"%>
+
 </body>
 </html>
