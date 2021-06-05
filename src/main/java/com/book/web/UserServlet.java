@@ -3,6 +3,7 @@ package com.book.web;
 import com.book.pojo.User;
 import com.book.service.UserService;
 import com.book.service.impl.UserServiceImpl;
+import com.book.utils.WebUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -59,6 +60,8 @@ public class UserServlet extends BaseServlet {
         String password = req.getParameter("password");
         String email = req.getParameter("email");
         String code = req.getParameter("code");
+
+        User user = WebUtils.copyParamToBean(req.getParameterMap(), new User());
 
 
 //        2、检查 验证码是否正确  === 写死,要求验证码为:abcde
