@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <title>书城首页</title>
-<link type="text/css" rel="stylesheet" href="static/css/style.css" >
+<%--静态包含base标签 css样式 jQuery文件--%>
+<%@include file="/pages/common/head.jsp"%>
 <body>
 	
 	<div id="header">
@@ -171,10 +172,9 @@
 	
 	</div>
 	
-	<div id="bottom">
-		<span>
-			尚硅谷书城.Copyright &copy;2015
-		</span>
-	</div>
+
+	<%--页脚--%>
+	<%@include file="/pages/common/footer.jsp"%>
+
 </body>
 </html>
