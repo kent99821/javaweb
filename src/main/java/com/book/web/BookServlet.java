@@ -11,7 +11,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "BookServlet", value = "/BookServlet")
+@WebServlet(name = "BookServlet", value = "/manager/bookServlet")
 public class BookServlet extends BaseServlet{
 
     private BookService bookService = new BookServiceImpl();
@@ -77,7 +77,6 @@ public class BookServlet extends BaseServlet{
         //3、请求转发到/pages/manager/book_manager.jsp页面
         req.getRequestDispatcher("/pages/manager/book_manager.jsp").forward(req,resp);
     }
-
 
 
 
