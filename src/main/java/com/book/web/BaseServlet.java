@@ -8,7 +8,10 @@ import java.lang.reflect.Method;
 
 @WebServlet(name = "BaseServlet", value = "/BaseServlet")
 public class BaseServlet extends HttpServlet {
-
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -42,5 +42,6 @@
     <orderEntry type="library" name="junit-4.13.1" level="project" />
     <orderEntry type="library" name="commons-dbutils-1.61" level="project" />
     <orderEntry type="library" name="commons-beanutils-1.8.0" level="project" />
+    <orderEntry type="library" name="taglibs-standard-impl-1.2.1" level="project" />
   </component>
 </module>
