@@ -17,7 +17,7 @@ public class BookServlet extends BaseServlet{
 
     private BookService bookService = new BookServiceImpl();
 
-    protected void page(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+    protected void page(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //1 获取请求的参数 pageNo 和 pageSize
         int pageNo = WebUtils.parseInt(req.getParameter("pageNo"), 1);
         int pageSize = WebUtils.parseInt(req.getParameter("pageSize"), Page.PAGE_SIZE);
@@ -32,8 +32,11 @@ public class BookServlet extends BaseServlet{
         req.getRequestDispatcher("/pages/manager/book_manager.jsp").forward(req,resp);
     }
 
-    protected void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+
+    protected void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int pageNo = WebUtils.parseInt(req.getParameter("pageNo"), 0);
+        pageNo+=1;
         //        1、获取请求的参数==封装成为Book对象
         Book book = WebUtils.copyParamToBean(req.getParameterMap(),new Book());
 //        2、调用BookService.addBook()保存图书
@@ -42,7 +45,7 @@ public class BookServlet extends BaseServlet{
 //                /manager/bookServlet?action=list
 //        req.getRequestDispatcher("/manager/bookServlet?action=list").forward(req, resp);
 
-        resp.sendRedirect(req.getContextPath() + "/manager/bookServlet?action=list");
+        resp.sendRedirect(req.getContextPath() + "/manager/bookServlet?action=page&pageNo=" + pageNo);
 
     }
 
@@ -55,7 +58,7 @@ public class BookServlet extends BaseServlet{
         bookService.deleteBookById(id);
 //        3、重定向回图书列表管理页面
 //                /book/manager/bookServlet?action=list
-        resp.sendRedirect(req.getContextPath() + "/manager/bookServlet?action=list");
+        resp.sendRedirect(req.getContextPath() + "/manager/bookServlet?action=page&pageNo=" + req.getParameter("pageNo"));
     }
 
 
@@ -67,7 +70,7 @@ public class BookServlet extends BaseServlet{
         bookService.updateBook(book);
 //        3、重定向回图书列表管理页面
 //        地址：/工程名/manager/bookServlet?action=list
-        resp.sendRedirect(req.getContextPath() + "/manager/bookServlet?action=list");
+        resp.sendRedirect(req.getContextPath() + "/manager/bookServlet?action=page&pageNo=" + req.getParameter("pageNo"));
     }
 
 
@@ -93,6 +96,8 @@ public class BookServlet extends BaseServlet{
         //3、请求转发到/pages/manager/book_manager.jsp页面
         req.getRequestDispatcher("/pages/manager/book_manager.jsp").forward(req,resp);
     }
+
+
 
 
 

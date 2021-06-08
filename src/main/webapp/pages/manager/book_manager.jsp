@@ -70,7 +70,11 @@
 			<td></td>
 			<td><a href="pages/manager/book_edit.jsp">添加图书</a></td>
 		</tr>
+
 	</table>
+	<%--静态包含分页条--%>
+	<%@include file="/pages/common/page_nav.jsp"%>
+
 </div>
 
 
