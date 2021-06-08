@@ -17,6 +17,13 @@ public class BookServlet extends BaseServlet{
 
     private BookService bookService = new BookServiceImpl();
 
+    /**
+     * 处理分页功能
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void page(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //1 获取请求的参数 pageNo 和 pageSize
         int pageNo = WebUtils.parseInt(req.getParameter("pageNo"), 1);
@@ -96,8 +103,6 @@ public class BookServlet extends BaseServlet{
         //3、请求转发到/pages/manager/book_manager.jsp页面
         req.getRequestDispatcher("/pages/manager/book_manager.jsp").forward(req,resp);
     }
-
-
 
 
 

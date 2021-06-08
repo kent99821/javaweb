@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%--分页条的开始--%>
@@ -65,7 +66,8 @@
 
                 var pageNo = $("#pn_input").val();
 
-
+                <%--var pageTotal = ${requestScope.page.pageTotal};--%>
+                <%--alert(pageTotal);--%>
 
                 // javaScript语言中提供了一个location地址栏对象
                 // 它有一个属性叫href.它可以获取浏览器地址栏中的地址
@@ -79,3 +81,5 @@
 
 </div>
 <%--分页条的结束--%>
+
+

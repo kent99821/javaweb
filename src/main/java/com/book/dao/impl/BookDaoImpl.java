@@ -23,6 +23,9 @@ public class BookDaoImpl extends BaseDao implements BookDao {
 
     @Override
     public int updateBook(Book book) {
+
+        System.out.println(" BookDaoImpl 程序在[" +Thread.currentThread().getName() + "]中");
+
         String sql = "update book set `name`=?,`author`=?,`price`=?,`sales`=?,`stock`=?,`img_path`=? where id = ?";
         return update(sql,book.getName(),book.getAuthor(),book.getPrice(),book.getSales(),book.getStock(),book.getImgPath(),book.getId());
     }
@@ -39,6 +42,7 @@ public class BookDaoImpl extends BaseDao implements BookDao {
         return queryForList(Book.class, sql);
     }
 
+
     @Override
     public Integer queryForPageTotalCount() {
         String sql = "select count(*) from book";
@@ -52,6 +56,17 @@ public class BookDaoImpl extends BaseDao implements BookDao {
         return queryForList(Book.class,sql,begin,pageSize);
     }
 
+    @Override
+    public Integer queryForPageTotalCountByPrice(int min, int max) {
+        String sql = "select count(*) from book where price between ? and ?";
+        Number count = (Number) queryForSingleValue(sql,min,max);
+        return count.intValue();
+    }
 
-
+    @Override
+    public List<Book> queryForPageItemsByPrice(int begin, int pageSize, int min, int max) {
+        String sql = "select `id`,`name`,`author`,`price`,`sales`,`stock`,`img_path` imgPath " +
+                "from book where price between ? and ? order by price limit ?,?";
+        return queryForList(Book.class,sql,min,max,begin,pageSize);
+    }
 }

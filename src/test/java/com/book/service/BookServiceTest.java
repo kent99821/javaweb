@@ -34,14 +34,18 @@ public class BookServiceTest {
     }
 
     @Test
-    public void page(){
-        System.out.println(bookService.page(1, Page.PAGE_SIZE ));
-    }
-
-    @Test
     public void queryBooks() {
         for (Book queryBook : bookService.queryBooks()) {
             System.out.println(queryBook);
         }
+    }
+
+    @Test
+    public void page(){
+        System.out.println(bookService.page(1, Page.PAGE_SIZE ));
+    }
+    @Test
+    public void pageByPrice(){
+        System.out.println(bookService.pageByPrice(1, Page.PAGE_SIZE,10,50 ));
     }
 }
