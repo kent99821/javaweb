@@ -1,6 +1,7 @@
 package com.book.service;
 
 import com.book.pojo.Book;
+import com.book.pojo.Page;
 import com.book.service.impl.BookServiceImpl;
 import org.junit.Test;
 
@@ -30,6 +31,11 @@ public class BookServiceTest {
     @Test
     public void queryBookById() {
         System.out.println(bookService.queryBookById(22));
+    }
+
+    @Test
+    public void page(){
+        System.out.println(bookService.page(1, Page.PAGE_SIZE ));
     }
 
     @Test

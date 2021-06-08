@@ -1,6 +1,7 @@
 package com.book.web;
 
 import com.book.pojo.Book;
+import com.book.pojo.Page;
 import com.book.service.BookService;
 import com.book.service.impl.BookServiceImpl;
 import com.book.utils.WebUtils;
@@ -15,6 +16,21 @@ import java.util.List;
 public class BookServlet extends BaseServlet{
 
     private BookService bookService = new BookServiceImpl();
+
+    protected void page(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException{
+        //1 获取请求的参数 pageNo 和 pageSize
+        int pageNo = WebUtils.parseInt(req.getParameter("pageNo"), 1);
+        int pageSize = WebUtils.parseInt(req.getParameter("pageSize"), Page.PAGE_SIZE);
+        //2 调用BookService.page(pageNo，pageSize)：Page对象
+        Page<Book> page = bookService.page(pageNo,pageSize);
+
+        page.setUrl("manager/bookServlet?action=page");
+
+        //3 保存Page对象到Request域中
+        req.setAttribute("page",page);
+        //4 请求转发到pages/manager/book_manager.jsp页面
+        req.getRequestDispatcher("/pages/manager/book_manager.jsp").forward(req,resp);
+    }
 
     protected void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
