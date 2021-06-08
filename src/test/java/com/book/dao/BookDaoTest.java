@@ -2,6 +2,7 @@ package com.book.dao;
 
 import com.book.dao.impl.BookDaoImpl;
 import com.book.pojo.Book;
+import com.book.pojo.Page;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -38,4 +39,17 @@ public class BookDaoTest {
             System.out.println(queryBook);
         }
     }
+
+    @Test
+    public void queryForPageTotalCount() {
+        System.out.println( bookDao.queryForPageTotalCount() );
+    }
+
+    @Test
+    public void queryForPageItems() {
+        for (Book book : bookDao.queryForPageItems(8, Page.PAGE_SIZE)) {
+            System.out.println(book);
+        }
+    }
+
 }
