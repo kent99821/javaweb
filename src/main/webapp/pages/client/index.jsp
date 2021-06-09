@@ -14,11 +14,15 @@
             $("button.addToCart").click(function () {
                 /**
                  * 在事件响应的function函数 中，有一个this对象，这个this对象，是当前正在响应事件的dom对象
-                 * @type {jQuery}
+                 *
                  */
                 var bookId = $(this).attr("bookId");
-                location.href = "http://localhost:8080/web/cartServlet?action=addItem&id=" + bookId;
 
+                // 发ajax请求，添加商品到购物车
+                $.getJSON("http://localhost:8080/web/cartServlet","action=ajaxAddItem&id=" + bookId,function (data) {
+                    $("#cartTotalCount").text("您的购物车中有 " + data.totalCount + " 件商品");
+                    $("#cartLastName").text(data.lastName);
+                })
             });
         });
     </Script>
@@ -60,16 +64,16 @@
         <div style="text-align: center">
             <c:if test="${empty sessionScope.cart.items}">
                 <%--购物车为空的输出--%>
-                <span> </span>
+                <span id="cartTotalCount"> </span>
                 <div>
-                    <span style="color: red">当前购物车为空</span>
+                    <span style="color: red" id="cartLastName">当前购物车为空</span>
                 </div>
             </c:if>
             <c:if test="${not empty sessionScope.cart.items}">
                 <%--购物车非空的输出--%>
-                <span>您的购物车中有 ${sessionScope.cart.totalCount} 件商品</span>
+                <span id="cartTotalCount">您的购物车中有 ${sessionScope.cart.totalCount} 件商品</span>
                 <div>
-                    您刚刚将<span style="color: red">${sessionScope.lastName}</span>加入到了购物车中
+                    您刚刚将<span style="color: red" id="cartLastName">${sessionScope.lastName}</span>加入到了购物车中
                 </div>
             </c:if>
         </div>
