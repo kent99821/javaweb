@@ -20,7 +20,7 @@
 		}
 	</style>
 </head>
-<body>
+<body style="overflow: inherit;">
 <div id="header">
 
 	<span class="wel_word"></span>
@@ -33,7 +33,7 @@
 
 <div id="main">
 
-	<h1>注册成功! <a href="../../index.jsp">转到主页</a></h1>
+	<h1>注册成功! <a href="/pages/client/index.jsp">转到主页</a></h1>
 
 </div>
 

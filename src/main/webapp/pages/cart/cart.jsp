@@ -11,9 +11,11 @@
 
 
 </head>
-<body>
+<body style="overflow: inherit;">
 <div id="header">
-	<img class="logo_img" alt="" src="static/img/logo.gif" >
+	<div class="Pheade" style="width: 100vw;height: 8vw;">
+		<img src="static/img/8.jpg" width="100%" height="100%" >
+	</div>
 	<span class="wel_word">购物车</span>
 
 	<%--静态包含，登录 成功之后的菜单 --%>

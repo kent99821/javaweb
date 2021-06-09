@@ -10,7 +10,10 @@
 	<%@ include file="/pages/common/head.jsp"%>
 
 </head>
-<body>
+<body style="overflow: inherit;">
+<div class="Pheade" style="width: 100vw;height: 8vw;">
+	<img src="static/img/8.jpg" width="100%" height="100%" >
+</div>
 很抱歉。您访问的页面不存在，或已经被删除！！！ <br>
 <a href="index.jsp">返回首页</a>
 

@@ -8,6 +8,7 @@
 
     <%-- 静态包含 base标签、css样式、jQuery文件 --%>
     <%@ include file="/pages/common/head.jsp"%>
+
     <Script type="text/javascript">
         $(function () {
             // 给加入购物车按钮绑定单击事件
@@ -25,11 +26,14 @@
                 })
             });
         });
+
     </Script>
 
 </head>
-<body>
-
+<body style="overflow: inherit;">
+<div class="Pheade" style="width: 100vw;height: 8vw;">
+    <img src="static/img/8.jpg" width="100%" height="100%" >
+</div>
 <div id="header">
 
     <span class="wel_word">网上书城</span>
@@ -121,8 +125,6 @@
 
 </div>
 
-<%--静态包含页脚内容--%>
-<%@include file="/pages/common/footer.jsp"%>
 
 </body>
 </html>

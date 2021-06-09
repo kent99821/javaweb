@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>尚硅谷会员注册页面</title>
+<title>网上书城注册页面</title>
 	<%--静态包含base标签 css样式 jQuery文件--%>
 	<%@include file="/pages/common/head.jsp"%>
 <style type="text/css">
@@ -17,9 +17,11 @@
 	}
 </style>
 </head>
-<body>
+<body style="overflow: inherit;">
 		<div id="header">
-				<img class="logo_img" alt="" src="static/img/logo.gif" >
+			<div class="Pheade" style="width: 100vw;height: 8vw;">
+				<img src="static/img/8.jpg" width="100%" height="100%" >
+			</div>
                    <%--静态包含 登录 成功之后的菜单--%>
 			<%@ include file="/pages/common/login_success_menu.jsp"%>
 		</div>
@@ -32,7 +34,7 @@
 		
 		<div id="bottom">
 			<span>
-				尚硅谷书城.Copyright &copy;2015
+				网上书城.Copyright &copy;2021
 			</span>
 		</div>
 </body>
