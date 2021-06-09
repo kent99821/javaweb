@@ -11,66 +11,83 @@ import java.sql.SQLException;
 import java.util.List;
 
 public abstract class BaseDao {
-//    使用DBUtils 操作数据库
-    private QueryRunner queryRunner=new QueryRunner();
-//    update用来执行insert/update/delete语句
-//    返回-1表示影响的行数
-    public int update(String sql,Object ... args){
-        Connection connection=JdbcUtils.getConnection();
+
+    //使用DbUtils操作数据库
+    private QueryRunner queryRunner = new QueryRunner();
+
+    /**
+     * update() 方法用来执行：Insert\Update\Delete语句
+     *
+     * @return 如果返回-1,说明执行失败<br/>返回其他表示影响的行数
+     */
+    public int update(String sql, Object... args) {
+
+        System.out.println(" BaseDao 程序在[" +Thread.currentThread().getName() + "]中");
+
+        Connection connection = JdbcUtils.getConnection();
         try {
-           return queryRunner.update(connection,sql,args);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            JdbcUtils.close(connection);
+            return queryRunner.update(connection, sql, args);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return  -1;
     }
-//    查询返回一个javaBean的sql语句
-//    type:返回的对象类型
-//    sql:sql语句
-//    args：sql对应的参数值
-//    返回的对象泛型
-    public <T> T queryForone(Class<T> type,String sql,Object ... args){
-        Connection con=JdbcUtils.getConnection();
+
+    /**
+     * 查询返回一个javaBean的sql语句
+     *
+     * @param type 返回的对象类型
+     * @param sql  执行的sql语句
+     * @param args sql对应的参数值
+     * @param <T>  返回的类型的泛型
+     * @return
+     */
+    public <T> T queryForOne(Class<T> type, String sql, Object... args) {
+        Connection con = JdbcUtils.getConnection();
         try {
-            return queryRunner.query(con,sql,new BeanHandler<T>(type),args);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            JdbcUtils.close(con);
+            return queryRunner.query(con, sql, new BeanHandler<T>(type), args);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return  null;
     }
-    //    查询返回多个javaBean的sql语句
-//    type:返回的对象类型
-//    sql:sql语句
-//    args：sql对应的参数值
-//    返回的对象泛型
-    public <T>List<T> queryForList(Class<T> type,String sql,Object ... args){
-        Connection con=JdbcUtils.getConnection();
+
+    /**
+     * 查询返回多个javaBean的sql语句
+     *
+     * @param type 返回的对象类型
+     * @param sql  执行的sql语句
+     * @param args sql对应的参数值
+     * @param <T>  返回的类型的泛型
+     * @return
+     */
+    public <T> List<T> queryForList(Class<T> type, String sql, Object... args) {
+        Connection con = JdbcUtils.getConnection();
         try {
-            return queryRunner.query(con,sql,new BeanListHandler<T>(type),args);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            JdbcUtils.close(con);
+            return queryRunner.query(con, sql, new BeanListHandler<T>(type), args);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return  null;
     }
-    //    查询返回一行一列的sql语句
-//    sql:sql语句
-//    args：sql对应的参数值
-//    返回的对象泛型
-public Object queryForSingleValue(String sql,Object ... args){
-        Connection conn=JdbcUtils.getConnection();
-    try {
-       return queryRunner.query(conn,sql,new ScalarHandler(),args);
-    } catch (SQLException throwables) {
-        throwables.printStackTrace();
-    }finally {
-        JdbcUtils.close(conn);
+
+    /**
+     * 执行返回一行一列的sql语句
+     * @param sql   执行的sql语句
+     * @param args  sql对应的参数值
+     * @return
+     */
+    public Object queryForSingleValue(String sql, Object... args){
+
+        Connection conn = JdbcUtils.getConnection();
+
+        try {
+            return queryRunner.query(conn, sql, new ScalarHandler(), args);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+
     }
-    return null;
-}
+
 }
