@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>尚硅谷会员注册页面</title>
+	<title>注册</title>
 
 	<%-- 静态包含 base标签、css样式、jQuery文件 --%>
 	<%@ include file="/pages/common/head.jsp"%>
@@ -106,6 +106,27 @@
 			});
 
 		});
+		$(function(){
+
+
+
+			// 随机展示背景图片
+			var imgSrcs = [ "static/img/1.jpg",
+				"static/img/2.jpg",
+				"static/img/3.jpg",
+				"static/img/4.jpg" ,
+				"static/img/5.jpg"
+			];
+			var randomBgIndex = parseInt(Math.random() * (imgSrcs.length));
+
+			$(document).ready(
+					function() {
+						$("body").css("background-image","url(" + imgSrcs[randomBgIndex] + ")");
+					});
+
+
+
+		})
 
 	</script>
 	<style type="text/css">
@@ -116,68 +137,61 @@
 
 	</style>
 </head>
-<body>
-<div id="login_header">
-	<img class="logo_img" alt="" src="static/img/logo.gif" >
-</div>
+<body style="overflow: inherit">
+<div class="container">
+	<div class="row">
+		<div class="col-md-offset-3 col-md-6">
+			<form class="form-horizontal" action="userServlet" method="post">
+				<span class="heading">欢迎注册</span>
+				<div class="form-group">
 
-<div class="login_banner">
-
-	<div id="l_content">
-		<span class="login_word">欢迎注册</span>
-	</div>
-
-	<div id="content">
-		<div class="login_form">
-			<div class="login_box">
-				<div class="tit">
-					<h1>注册尚硅谷会员</h1>
-					<span class="errorMsg">
+					<input type="hidden" name="action" value="regist" />
+					<span class="errorMsg" style="color: tomato">
 						${ requestScope.msg }
 					</span>
+
+					<input  type="text"  class="form-control"  required oninvalid="setCustomValidity('用户名不能为空');" oninput="setCustomValidity('');"  placeholder="请输入用户名"
+							value="${requestScope.username}"
+							autocomplete="off" tabindex="1" name="username" id="username" />
+
 				</div>
-				<div class="form">
-					<form action="userServlet" method="post">
-						<input type="hidden" name="action" value="regist">
-						<label>用户名称：</label>
-						<input class="itxt" type="text" placeholder="请输入用户名"
-							   value="${requestScope.username}"
-							   autocomplete="off" tabindex="1" name="username" id="username" />
-						<br />
-						<br />
-						<label>用户密码：</label>
-						<input class="itxt" type="password" placeholder="请输入密码"
-							   autocomplete="off" tabindex="1" name="password" id="password" />
-						<br />
-						<br />
-						<label>确认密码：</label>
-						<input class="itxt" type="password" placeholder="确认密码"
-							   autocomplete="off" tabindex="1" name="repwd" id="repwd" />
-						<br />
-						<br />
-						<label>电子邮件：</label>
-						<input class="itxt" type="text" placeholder="请输入邮箱地址"
-							   value="${requestScope.email}"
-							   autocomplete="off" tabindex="1" name="email" id="email" />
-						<br />
-						<br />
-						<label>验证码：</label>
-						<input class="itxt" type="text" name="code" style="width: 80px;" id="code" />
-						<img id="code_img" alt="" src="kaptcha.jpg" style="float: right; margin-right: 40px; width: 110px; height: 30px;">
-						<br />
-						<br />
-						<input type="submit" value="注册" id="sub_btn" />
-					</form>
+				<div class="form-group">
+					<input  class="form-control" required oninvalid="setCustomValidity('密码不能为空');" oninput="setCustomValidity('');" placeholder="请输入密码" type="password" placeholder="请输入密码"
+							autocomplete="off" tabindex="1" name="password" id="password" />
 				</div>
 
-			</div>
+				<div class="form-group">
+					<input  class="form-control" required  placeholder="请再次密码"
+							type="password" placeholder="确认密码"
+							autocomplete="off" tabindex="1" name="repwd" id="repwd" />
+				</div>
+
+				<div class="form-group">
+
+					<input  class="form-control" required  type="text" placeholder="请输入邮箱地址"
+							value="${requestScope.email}"
+							autocomplete="off" tabindex="1" name="email" id="email"  />
+				</div>
+
+
+				<div class="form-group" >
+
+					<input  class="form-control" placeholder="请输入验证码" required  type="text" name="code" style="width: 300px;" id="code"  />
+					<img id="code_img" alt="" src="kaptcha.jpg" style="float: right; margin-right: 20px; top: 20px; width: 160px; height: 45px;">
+
+				</div>
+
+
+
+
+				<div class="form-group">
+					<input type="submit" value="注册" id="sub_btn" class="btn btn-default" />
+					<!--                    <button class="btn btn-default" id="btn1">注册</button>-->
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
-
-<%--静态包含页脚内容--%>
-<%@include file="/pages/common/footer.jsp"%>
-
-
 </body>
+
 </html>
