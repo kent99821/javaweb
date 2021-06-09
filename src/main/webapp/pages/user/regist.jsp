@@ -1,15 +1,31 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>尚硅谷会员注册页面</title>
-	<%--静态包含base标签 css样式 jQuery文件--%>
-	<%@include file="/pages/common/head.jsp"%>
-	<script type="text/javascript" src="static/script/jquery-1.7.2.js"></script>
+
+	<%-- 静态包含 base标签、css样式、jQuery文件 --%>
+	<%@ include file="/pages/common/head.jsp"%>
+
+
 	<script type="text/javascript">
 		// 页面加载完成之后
 		$(function () {
+
+			$("#username").blur(function () {
+				//1 获取用户名
+				var username = this.value;
+				$.getJSON("http://localhost:8080/web/UserServlet","action=ajaxExistsUsername&username=" + username,function (data) {
+					if (data.existsUsername) {
+						$("span.errorMsg").text("用户名已存在！");
+					} else {
+						$("span.errorMsg").text("用户名可用！");
+					}
+				});
+			});
+
+
 			// 给验证码的图片，绑定单击事件
 			$("#code_img").click(function () {
 				// 在事件响应的function函数中有一个this对象。这个this对象，是当前正在响应事件的dom对象
@@ -32,7 +48,6 @@
 
 					return false;
 				}
-
 				// 验证密码：必须由字母，数字下划线组成，并且长度为5到12位
 				//1 获取用户名输入框里的内容
 				var passwordText = $("#password").val();
@@ -118,18 +133,16 @@
 				<div class="tit">
 					<h1>注册尚硅谷会员</h1>
 					<span class="errorMsg">
-						${requestScope.msg }
+						${ requestScope.msg }
 					</span>
 				</div>
 				<div class="form">
-					<form action="UserServlet" method="post">
+					<form action="userServlet" method="post">
 						<input type="hidden" name="action" value="regist">
-
 						<label>用户名称：</label>
 						<input class="itxt" type="text" placeholder="请输入用户名"
-							   autocomplete="off" tabindex="1" name="username" id="username"
-						       value="${requestScope.username}"
-						/>
+							   value="${requestScope.username}"
+							   autocomplete="off" tabindex="1" name="username" id="username" />
 						<br />
 						<br />
 						<label>用户密码：</label>
@@ -144,14 +157,13 @@
 						<br />
 						<label>电子邮件：</label>
 						<input class="itxt" type="text" placeholder="请输入邮箱地址"
-							   autocomplete="off" tabindex="1" name="email" id="email"
-								value="${requestScope.email}"
-						/>
+							   value="${requestScope.email}"
+							   autocomplete="off" tabindex="1" name="email" id="email" />
 						<br />
 						<br />
 						<label>验证码：</label>
-						<input class="itxt" type="text" style="width: 150px;" id="code" name="code"/>
-						<img   id="code_img"  alt="" src="kaptcha.jpg" style="float: right; margin-right: 40px;width: 110px; height: 30px;">
+						<input class="itxt" type="text" name="code" style="width: 80px;" id="code" />
+						<img id="code_img" alt="" src="kaptcha.jpg" style="float: right; margin-right: 40px; width: 110px; height: 30px;">
 						<br />
 						<br />
 						<input type="submit" value="注册" id="sub_btn" />
@@ -162,10 +174,10 @@
 		</div>
 	</div>
 </div>
-<div id="bottom">
-			<span>
-				尚硅谷书城.Copyright &copy;2015
-			</span>
-</div>
+
+<%--静态包含页脚内容--%>
+<%@include file="/pages/common/footer.jsp"%>
+
+
 </body>
 </html>
