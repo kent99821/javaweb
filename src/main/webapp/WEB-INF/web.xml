@@ -11,7 +11,7 @@
         <servlet-name>KaptchaServlet</servlet-name>
         <url-pattern>/kaptcha.jpg</url-pattern>
     </servlet-mapping>
-
+<!--管理后台的过滤器 -->
     <filter>
         <filter-name>ManagerFilter</filter-name>
         <filter-class>com.book.filter.ManagerFilter</filter-class>
@@ -21,4 +21,15 @@
         <url-pattern>/pages/manager/*</url-pattern>
         <url-pattern>/manager/bookServlet</url-pattern>
     </filter-mapping>
+    <!--给所有的Service方法加上try catch实现事务管理 -->
+    <filter>
+        <filter-name>TransactionFilter</filter-name>
+        <filter-class>com.book.filter.TransactionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>TransactionFilter</filter-name>
+        <!-- /* 表示当前工程下所有请求 -->
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
 </web-app>
