@@ -31,7 +31,7 @@
 <body>
 
 <div id="header">
-    <img class="logo_img" alt="" src="static/img/logo.gif" >
+
     <span class="wel_word">网上书城</span>
     <div>
         <%--如果用户还没有登录，显示     【登录 和注册的菜单】 --%>

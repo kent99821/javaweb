@@ -16,7 +16,7 @@ import java.util.Map;
 
 import static com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY;
 
-@WebServlet(name = "UserServlet", value = "/UserServlet")
+@WebServlet(name = "UserServlet", value = "/userServlet")
 public class UserServlet extends BaseServlet {
     private UserService userService = new UserServiceImpl();
 

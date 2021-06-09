@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>电子产品</title>
+<title>后台出现错误</title>
 
 	<%-- 静态包含 base标签、css样式、jQuery文件 --%>
 	<%@ include file="/pages/common/head.jsp"%>
