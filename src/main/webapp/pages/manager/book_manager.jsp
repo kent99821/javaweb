@@ -27,11 +27,11 @@
 
 </head>
 <body style="overflow: inherit;">
-
+<div class="Pheade" style="width: 100vw;height: 8vw;">
+	<img src="static/img/8.jpg" width="100%" height="100%" >
+</div>
 <div id="header">
-	<div class="Pheade" style="width: 100vw;height: 8vw;">
-		<img src="static/img/8.jpg" width="100%" height="100%" >
-	</div>
+
 	<span class="wel_word">图书管理系统</span>
 
 	<%-- 静态包含 manager管理模块的菜单  --%>
@@ -40,7 +40,7 @@
 
 </div>
 
-<div id="main">
+<div id="main" style="position: relative;left: 15vw;">
 	<table>
 		<tr>
 			<td>名称</td>

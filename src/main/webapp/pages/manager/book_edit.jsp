@@ -25,11 +25,10 @@
 	</style>
 </head>
 <body style="overflow: inherit;">
-
+<div class="Pheade" style="width: 100vw;height: 8vw;">
+	<img src="static/img/8.jpg" width="100%" height="100%" >
+</div>
 <div id="header">
-	<div class="Pheade" style="width: 100vw;height: 8vw;">
-		<img src="static/img/8.jpg" width="100%" height="100%" >
-	</div>
 	<span class="wel_word">编辑图书</span>
 
 	<%-- 静态包含 manager管理模块的菜单  --%>
@@ -38,7 +37,7 @@
 
 </div>
 
-<div id="main">
+<div id="main" style="position: relative;left: 15vw;">
 	<form action="manager/bookServlet" method="get">
 		<input type="hidden" name="pageNo" value="${param.pageNo}">
 		<input type="hidden" name="action" value="${ empty param.id ? "add" : "update" }" />
@@ -58,6 +57,7 @@
 				<td><input name="author" type="text" value="${requestScope.book.author}"/></td>
 				<td><input name="sales" type="text" value="${requestScope.book.sales}"/></td>
 				<td><input name="stock" type="text" value="${requestScope.book.stock}"/></td>
+				<td><input name="imgPath" type="text" hidden value="${requestScope.book.imgPath}"/></td>
 				<td><input type="submit" value="提交"/></td>
 			</tr>
 		</table>
