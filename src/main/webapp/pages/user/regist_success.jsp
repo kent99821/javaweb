@@ -22,16 +22,14 @@
 </head>
 <body style="overflow: inherit;">
 <div id="header">
-
 	<span class="wel_word"></span>
-
 	<%--静态包含，登录 成功之后的菜单 --%>
 	<%@ include file="/pages/common/login_success_menu.jsp"%>
 
 
 </div>
 
-<div id="main">
+<div id="main" >
 
 	<h1>注册成功! <a href="/pages/client/index.jsp">转到主页</a></h1>
 

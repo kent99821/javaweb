@@ -17,11 +17,11 @@
 	</style>
 </head>
 <body style="overflow: inherit;">
-
+<div class="Pheade" style="width: 100vw;height: 8vw;">
+	<img src="static/img/8.jpg" width="100%" height="100%" >
+</div>
 <div id="header">
-	<div class="Pheade" style="width: 100vw;height: 8vw;">
-		<img src="static/img/8.jpg" width="100%" height="100%" >
-	</div>
+
 	<span class="wel_word">结算</span>
 
 	<%--静态包含，登录 成功之后的菜单 --%>
@@ -30,7 +30,7 @@
 
 </div>
 
-<div id="main">
+<div id="main" >
 
 	<h1>你的订单已结算，订单号为: ${sessionScope.orderId}</h1>
 

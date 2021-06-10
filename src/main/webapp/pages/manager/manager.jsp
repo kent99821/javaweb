@@ -14,18 +14,20 @@
 </style>
 </head>
 <body style="overflow: inherit;">
-	
+<div class="Pheade" style="width: 100vw;height: 8vw;">
+	<img src="static/img/8.jpg" width="100%" height="100%" >
+</div>
 	<div id="header">
-		<div class="Pheade" style="width: 100vw;height: 8vw;">
-			<img src="static/img/8.jpg" width="100%" height="100%" >
-		</div>
 			<span class="wel_word">后台管理系统</span>
-		<%--菜单--%>
-		<%@include file="/pages/common/manager_menu.jsp"%>
+		<div style=>
+			<a href="manager/bookServlet?action=page">图书管理</a>
+			<a href="pages/manager/order_manager.jsp">订单管理</a>
+			<a href="index.jsp">返回商城</a>
+		</div>
 
 	</div>
 	
-	<div id="main">
+	<div id="main" style="position: relative;left: 15vw;">
 		<h1>欢迎管理员进入后台管理系统</h1>
 	</div>
 

@@ -6,8 +6,21 @@
     <meta charset="UTF-8">
     <title>书城首页</title>
 
-    <%-- 静态包含 base标签、css样式、jQuery文件 --%>
-    <%@ include file="/pages/common/head.jsp"%>
+    <%
+        String basePath = request.getScheme()
+                + "://"
+                + request.getServerName()
+                + ":"
+                + request.getServerPort()
+                + request.getContextPath()
+                + "/";
+    %>
+
+    <!--写base标签，永远固定相对路径跳转的结果-->
+    <base href="<%=basePath%>">
+    <link href="static/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="static/css/style.css" >
+    <script type="text/javascript" src="static/script/jquery-1.7.2.js"></script>
 
     <Script type="text/javascript">
         $(function () {
@@ -54,7 +67,6 @@
         <a href="pages/manager/manager.jsp">后台管理</a>
     </div>
 </div>
-
 <div id="main">
     <div id="book">
         <div class="book_cond">
@@ -125,6 +137,7 @@
 
 </div>
 
-
+<%--静态包含页脚内容--%>
+<%@include file="/pages/common/footer.jsp"%>
 </body>
 </html>

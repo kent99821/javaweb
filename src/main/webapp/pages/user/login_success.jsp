@@ -18,15 +18,16 @@
 </style>
 </head>
 <body style="overflow: inherit;">
+<div class="Pheade" style="width: 100vw;height: 8vw;">
+	<img src="static/img/8.jpg" width="100%" height="100%" >
+</div>
 		<div id="header">
-			<div class="Pheade" style="width: 100vw;height: 8vw;">
-				<img src="static/img/8.jpg" width="100%" height="100%" >
-			</div>
+
                    <%--静态包含 登录 成功之后的菜单--%>
 			<%@ include file="/pages/common/login_success_menu.jsp"%>
 		</div>
 		
-		<div id="main">
+		<div id="main" >
 		
 			<h1>欢迎回来 <a href="index.jsp">转到主页</a></h1>
 	

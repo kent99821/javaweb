@@ -12,10 +12,11 @@
 
 </head>
 <body style="overflow: inherit;">
+<div class="Pheade" style="width: 100vw;height: 8vw;">
+	<img src="static/img/8.jpg" width="100%" height="100%" >
+</div>
 <div id="header">
-	<div class="Pheade" style="width: 100vw;height: 8vw;">
-		<img src="static/img/8.jpg" width="100%" height="100%" >
-	</div>
+
 	<span class="wel_word">购物车</span>
 
 	<%--静态包含，登录 成功之后的菜单 --%>
@@ -51,7 +52,7 @@
 
 </div>
 
-<div id="main">
+<div id="main" >
 
 	<table>
 		<tr>

@@ -7,18 +7,18 @@
 	<%--静态包含base标签 css样式 jQuery文件--%>
 	<%@include file="/pages/common/head.jsp"%></head>
 <body style="overflow: inherit;">
-	
+<div class="Pheade" style="width: 100vw;height: 8vw;">
+	<img src="static/img/8.jpg" width="100%" height="100%" >
+</div>
 	<div id="header">
-		<div class="Pheade" style="width: 100vw;height: 8vw;">
-			<img src="static/img/8.jpg" width="100%" height="100%" >
-		</div>
+
 			<span class="wel_word">订单管理系统</span>
 		<%--菜单--%>
 		<%@include file="/pages/common/manager_menu.jsp"%>
 
 	</div>
 	
-	<div id="main">
+	<div id="main" style="position: relative;left: 15vw;">
 		<table>
 			<tr>
 				<td>日期</td>
