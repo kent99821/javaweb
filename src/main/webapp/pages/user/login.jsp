@@ -14,7 +14,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-offset-3 col-md-6">
-			<form class="form-horizontal" action="userServlet" method="post">
+			<form  class="form-horizontal" action="userServlet" method="post">
 				<span class="heading">欢迎登录</span>
 				<div class="form-group">
 						<span class="errorMsg" style="color: firebrick">

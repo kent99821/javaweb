@@ -58,7 +58,7 @@
         </c:if>
         <%--如果已经登录，则显示 登录 成功之后的用户信息。--%>
         <c:if test="${not empty sessionScope.user}">
-            <span>欢迎<span class="um_span">${sessionScope.user.username}</span>光临尚硅谷书城</span>
+            <span>欢迎<span class="um_span">${sessionScope.user.username}</span>光临网上书城</span>
             <a href="pages/order/order.jsp">我的订单</a>
             <a href="userServlet?action=logout">注销</a>&nbsp;&nbsp;&nbsp;
         </c:if>

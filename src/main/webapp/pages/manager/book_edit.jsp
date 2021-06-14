@@ -29,7 +29,7 @@
 	<img src="static/img/8.jpg" width="100%" height="100%" >
 </div>
 <div id="header">
-	<span class="wel_word">编辑图书</span>
+	<span class="wel_word">添加/编辑图书</span>
 
 	<%-- 静态包含 manager管理模块的菜单  --%>
 	<%@include file="/pages/common/manager_menu.jsp"%>
