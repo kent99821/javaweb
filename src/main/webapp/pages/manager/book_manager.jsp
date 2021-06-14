@@ -40,7 +40,7 @@
 
 </div>
 
-<div id="main" style="position: relative;left: 15vw;">
+<div id="main" >
 	<table>
 		<tr>
 			<td>名称</td>

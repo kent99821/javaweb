@@ -37,7 +37,7 @@
 
 </div>
 
-<div id="main" style="position: relative;left: 15vw;">
+<div id="main" >
 	<form action="manager/bookServlet" method="get">
 		<input type="hidden" name="pageNo" value="${param.pageNo}">
 		<input type="hidden" name="action" value="${ empty param.id ? "add" : "update" }" />

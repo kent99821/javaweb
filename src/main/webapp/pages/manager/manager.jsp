@@ -14,7 +14,7 @@
 </style>
 </head>
 <body style="overflow: inherit;">
-<div class="Pheade" style="width: 100vw;height: 8vw;">
+<div class="Pheade" >
 	<img src="static/img/8.jpg" width="100%" height="100%" >
 </div>
 	<div id="header">
@@ -27,7 +27,7 @@
 
 	</div>
 	
-	<div id="main" style="position: relative;left: 15vw;">
+	<div id="main" >
 		<h1>欢迎管理员进入后台管理系统</h1>
 	</div>
 
